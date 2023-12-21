@@ -1,0 +1,30 @@
+@mixin column(){
+    @for $i from 1 through 12 {
+        .col#{$i}{
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media(min-width: 1200px){
+            .col#{$i}{
+                width: calc(#{$i * 8.33333%} - 20px);
+                margin-inline: 10px;
+            }
+        }
+
+        @media(max-width: 1200px){
+            .col#{$i}{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@include column();
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: flex-end;
+}

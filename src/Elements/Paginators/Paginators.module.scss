@@ -1,0 +1,45 @@
+@import '../../Helpers/variables.scss';
+
+.paginator{
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    justify-self: end;
+    background-color: #ccccccaa;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+@media screen and (min-width: 1500px){
+    .paginator{
+        grid-column: span 5;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1500px){
+    .paginator{
+        grid-column: span 4;
+    }
+}
+
+
+@media screen and (max-width: 1200px){
+    .paginator{
+        grid-column: span 2;
+    }
+}
+
+.baseButton{
+    border: none;
+    outline: none;
+    background-color: $base-color;
+    border-radius: 10px;
+    color: $font-color-2;
+}
+
+.pageNumber{
+    color: $base-color;
+    font: $subheader-font;
+    font-weight: 600;
+    text-shadow: 0 0 5px $font-color-2;
+}

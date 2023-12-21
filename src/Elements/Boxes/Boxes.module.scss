@@ -1,0 +1,14 @@
+@import '../../Helpers/variables.scss';
+
+.baseBox{
+    border: 1px solid $base-color;
+    border-radius: 5px;
+    width: calc(100% - 40px);
+    box-shadow: 0 0 6px 1px $base-color;
+    min-height: 30vh;
+    max-height: 75vh;
+    overflow: auto;
+    margin-top: 20px;
+    contain: layout;
+    padding: 10px 20px;
+}

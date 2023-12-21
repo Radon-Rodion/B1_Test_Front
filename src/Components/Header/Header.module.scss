@@ -1,0 +1,150 @@
+@import '../../Helpers/variables.scss';
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: $header-color;
+    height: 50px;
+    z-index: 7;
+    font: $subheader-font;
+    overflow-y: hidden;
+}
+
+.headerItems{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+}
+
+.body{
+    display: flex;
+    flex-direction: row;
+}
+
+.menuBtn{
+    position: fixed;
+    left: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    margin: 0 10px 0 20px;
+    background-color: $header-color;
+    color: $font-color-2;
+    font: $subheader-font;
+    cursor: pointer;
+    z-index: 7;
+}
+
+@keyframes menu-appear {
+    0% {
+        width: 0;
+        overflow-x: hidden;
+    }
+    100% {
+        width: 300px;
+        overflow-x: auto;
+    }
+}
+
+@keyframes menu-hide {
+    0% {
+        width: 300px;
+        overflow-x: auto;
+    }
+
+    100% {
+        width: 0;
+        overflow-x: hidden;
+    }
+}
+
+.menu{
+    background-color: lighten($header-color, 7);
+    margin: 50px 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 50px);
+    color: $font-color-2;
+}
+
+@mixin menuAnimate($tag, $animationTime: .15s){
+    .menuShown#{$tag}{
+        width: 300px;
+        animation: menu-appear $animationTime linear;
+    }
+    
+    .menuHidden#{$tag}{
+        width: 0;
+        animation: menu-hide $animationTime linear;
+        overflow-x: hidden;
+    }
+}
+
+@include menuAnimate(Animate, .15s);
+@include menuAnimate(NoAnimate, 0);
+
+.menuLi{
+    list-style-type: none;
+    padding: 10px 25px 10px 30px;
+    cursor: pointer;
+    // height: 43px;
+    line-height: 33px;
+    overflow: hidden;
+    font: $base-font;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.menuLi:hover{
+    background-color: $background-1;
+}
+
+.activeLink{
+    border-right: 5px solid $base-color;
+}
+
+.headerRightPart:last-of-type{
+    margin-left: auto;
+    margin-right: 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.submenuIcon{
+    padding-left: 15px;
+    cursor: help;
+}
+
+.submenuIconCollapse i{
+    transform: rotate(180deg);
+}
+
+.submenuList{
+    display: flex;
+    flex-direction: column;
+}
+
+.finYearSelector{
+    margin: 0 30px 0 auto;
+    background-color: $header-color;
+    color: $base-color;
+    border: 1px solid $base-color;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: 500;
+}
+
+.finYearsSpin{
+    font-size: 16pt;
+    position: inherit;
+}
